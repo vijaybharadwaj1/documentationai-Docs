@@ -1,25 +1,29 @@
 ---
 title: Features
-description: Detailed walkthrough of core features and common use cases for effective documentation management.
+description: >-
+  Detailed walkthrough of core features and common use cases for effective
+  documentation management.
 ---
-
 ## Overview
 
 Vijay Bharadwaj's documentation space provides powerful tools to organize, collaborate, track changes, and search your project docs efficiently. You can structure content hierarchically, invite team members for real-time edits, maintain version history, and find information quickly across all pages.
 
 Use these core features to streamline your documentation workflow:
 
-<Columns cols={2}>
-  <Card title="Document Organization" icon="folder" href="#document-organization">
+<Columns cols="2">
+  <Card title="Document Organization" href="#document-organization" icon="folder" horizontal="false">
     Create folders, pages, and subpages to keep everything structured.
   </Card>
-  <Card title="Collaboration Workflows" icon="users" href="#collaboration-workflows">
+
+  <Card title="Collaboration Workflows" href="#collaboration-workflows" icon="users" horizontal="false">
     Share docs with teams and review changes together.
   </Card>
-  <Card title="Version History" icon="git-branch" href="#version-history">
+
+  <Card title="Version History" href="#version-history" icon="git-branch" horizontal="false">
     Track every edit and revert when needed.
   </Card>
-  <Card title="Search Functionality" icon="search" href="#search-functionality">
+
+  <Card title="Search Functionality" href="#search-functionality" icon="search" horizontal="false">
     Find content instantly with smart search.
   </Card>
 </Columns>
@@ -29,18 +33,20 @@ Use these core features to streamline your documentation workflow:
 Organize your documentation into logical structures using folders and pages. Start by creating a main folder for your project, then add subpages for guides, APIs, and FAQs.
 
 <Steps>
-  <Step title="Create a Folder" icon="folder-plus">
+  <Step title="Create a Folder" icon="folder-plus" title-type="p">
     Navigate to your workspace and click the new folder button. Name it after your project, like `Vijay Bharadwaj Docs`.
   </Step>
-  <Step title="Add Pages" icon="file-plus">
+
+  <Step title="Add Pages" icon="file-plus" title-type="p">
     Inside the folder, create pages for specific topics. Use the page editor to add markdown content.
   </Step>
-  <Step title="Nest Subpages" icon="chevron-down">
+
+  <Step title="Nest Subpages" icon="chevron-down" title-type="p">
     Drag pages under others to create hierarchies. This builds a clean navigation tree.
   </Step>
 </Steps>
 
-<Callout kind="tip">
+<Callout kind="tip" collapsed="false">
   Use consistent naming conventions like `01-quickstart.mdx` to auto-sort pages chronologically.
 </Callout>
 
@@ -58,13 +64,15 @@ Invite team members to collaborate in real-time. Assign roles like editor or vie
     embedEditor(docId, { mode: 'collaborative' });
     ```
   </Tab>
+
   <Tab title="Review Process" icon="eye">
     Enable comments and @mentions. Reviewers add feedback without altering the original.
 
-    <CodeGroup tabs="Markdown,API">
+    <CodeGroup show-lines="true">
       ```markdown
       @team-review This section needs examples.
       ```
+
       ```javascript
       postComment('team-review', 'This section needs examples.');
       ```
@@ -76,15 +84,17 @@ Invite team members to collaborate in real-time. Assign roles like editor or vie
 
 Every edit creates a snapshot you can browse, compare, or restore. Use version history to track progress and undo mistakes.
 
-<Board title="Document Change Workflow">
-  <BoardColumn title="Draft" color="0" icon="edit">
-    <BoardCard title="Add quickstart guide" description="Initial setup instructions" author="You" createdAt="2024-10-01" />
+<Board uid="b037bf7d-2dd3-4bda-8f34-612dee7d0bd1" title="Document Change Workflow">
+  <BoardColumn title="Draft" uid="918dd00c-4a69-4044-b37b-d3e0f96d10b3" color="0" icon="edit">
+    <BoardCard title="Add quickstart guide" uid="78ed8610-1979-47fd-8394-e29fb6446eb5" description="Initial setup instructions" author="You" created-at="2024-10-01" />
   </BoardColumn>
-  <BoardColumn title="Review" color="1" icon="eye">
-    <BoardCard title="Update API examples" description="Fix endpoint URLs" dueDate="2024-10-10" author="Collaborator" />
+
+  <BoardColumn title="Review" uid="8e1f089d-4a45-4da7-99fc-33ced1883052" color="1" icon="eye">
+    <BoardCard title="Update API examples" uid="39cda637-5ea9-4441-acbf-2e80d1c23169" description="Fix endpoint URLs" due-date="2024-10-10" author="Collaborator" />
   </BoardColumn>
-  <BoardColumn title="Published" color="2" icon="check-circle">
-    <BoardCard title="Release v1.0 notes" description="Changelog updates" createdAt="2024-10-15" />
+
+  <BoardColumn title="Published" uid="36d69baf-6270-4b88-a452-37d09e34e0ca" color="2" icon="check-circle">
+    <BoardCard title="Release v1.0 notes" uid="2b8d095c-9e98-41c1-a40a-cd17dd21a6df" description="Changelog updates" created-at="2024-10-15" />
   </BoardColumn>
 </Board>
 
@@ -102,18 +112,20 @@ Every edit creates a snapshot you can browse, compare, or restore. Use version h
 Search across all docs with full-text indexing. Filter by folder, date, or author for precise results.
 
 <Steps>
-  <Step title="Basic Search" icon="search">
+  <Step title="Basic Search" icon="search" title-type="p">
     Type keywords in the global search bar. Results appear instantly.
   </Step>
-  <Step title="Advanced Filters" icon="filter">
+
+  <Step title="Advanced Filters" icon="filter" title-type="p">
     Add filters like `folder:guides author:you` for targeted queries.
   </Step>
-  <Step title="Saved Searches" icon="bookmark">
+
+  <Step title="Saved Searches" icon="bookmark" title-type="p">
     Pin frequent searches to your sidebar for quick access.
   </Step>
 </Steps>
 
-<Callout kind="info">
+<Callout kind="info" collapsed="false">
   Search supports code syntax highlighting in results. Use `<code>query</code>` for exact matches.
 </Callout>
 
@@ -121,11 +133,13 @@ Search across all docs with full-text indexing. Filter by folder, date, or autho
 
 Explore these features hands-on:
 
-<Columns cols={2}>
-  <Card title="Quickstart" icon="book-open" href="/quickstart" horizontal>
+<Columns cols="2">
+  <Card title="Quickstart" href="/quickstart" icon="book-open" horizontal="false">
     Set up your first doc in minutes.
   </Card>
-  <Card title="Advanced Guides" icon="book" href="/guides" horizontal>
+
+  <Card title="Advanced Guides" href="/guides" icon="book" horizontal="false">
     Dive deeper into customization.
   </Card>
 </Columns>
+
