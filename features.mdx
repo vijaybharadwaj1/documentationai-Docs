@@ -1,0 +1,131 @@
+---
+title: Features
+description: Detailed walkthrough of core features and common use cases for effective documentation management.
+---
+
+## Overview
+
+Vijay Bharadwaj's documentation space provides powerful tools to organize, collaborate, track changes, and search your project docs efficiently. You can structure content hierarchically, invite team members for real-time edits, maintain version history, and find information quickly across all pages.
+
+Use these core features to streamline your documentation workflow:
+
+<Columns cols={2}>
+  <Card title="Document Organization" icon="folder" href="#document-organization">
+    Create folders, pages, and subpages to keep everything structured.
+  </Card>
+  <Card title="Collaboration Workflows" icon="users" href="#collaboration-workflows">
+    Share docs with teams and review changes together.
+  </Card>
+  <Card title="Version History" icon="git-branch" href="#version-history">
+    Track every edit and revert when needed.
+  </Card>
+  <Card title="Search Functionality" icon="search" href="#search-functionality">
+    Find content instantly with smart search.
+  </Card>
+</Columns>
+
+## Document Organization
+
+Organize your documentation into logical structures using folders and pages. Start by creating a main folder for your project, then add subpages for guides, APIs, and FAQs.
+
+<Steps>
+  <Step title="Create a Folder" icon="folder-plus">
+    Navigate to your workspace and click the new folder button. Name it after your project, like `Vijay Bharadwaj Docs`.
+  </Step>
+  <Step title="Add Pages" icon="file-plus">
+    Inside the folder, create pages for specific topics. Use the page editor to add markdown content.
+  </Step>
+  <Step title="Nest Subpages" icon="chevron-down">
+    Drag pages under others to create hierarchies. This builds a clean navigation tree.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use consistent naming conventions like `01-quickstart.mdx` to auto-sort pages chronologically.
+</Callout>
+
+## Collaboration Workflows
+
+Invite team members to collaborate in real-time. Assign roles like editor or viewer to control access.
+
+<Tabs>
+  <Tab title="Team Editing" icon="edit-3">
+    Share a link to your doc. Collaborators see live cursors and can suggest changes.
+
+    ```javascript
+    // Example: Embed collaboration in your app
+    const docId = 'project-docs-123';
+    embedEditor(docId, { mode: 'collaborative' });
+    ```
+  </Tab>
+  <Tab title="Review Process" icon="eye">
+    Enable comments and @mentions. Reviewers add feedback without altering the original.
+
+    <CodeGroup tabs="Markdown,API">
+      ```markdown
+      @team-review This section needs examples.
+      ```
+      ```javascript
+      postComment('team-review', 'This section needs examples.');
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Version History
+
+Every edit creates a snapshot you can browse, compare, or restore. Use version history to track progress and undo mistakes.
+
+<Board title="Document Change Workflow">
+  <BoardColumn title="Draft" color="0" icon="edit">
+    <BoardCard title="Add quickstart guide" description="Initial setup instructions" author="You" createdAt="2024-10-01" />
+  </BoardColumn>
+  <BoardColumn title="Review" color="1" icon="eye">
+    <BoardCard title="Update API examples" description="Fix endpoint URLs" dueDate="2024-10-10" author="Collaborator" />
+  </BoardColumn>
+  <BoardColumn title="Published" color="2" icon="check-circle">
+    <BoardCard title="Release v1.0 notes" description="Changelog updates" createdAt="2024-10-15" />
+  </BoardColumn>
+</Board>
+
+<Expandable title="Compare Versions" default-open="false">
+  Select two versions side-by-side to see diffs. Restore any previous state with one click.
+
+  ```bash
+  # CLI example for version restore
+  docs restore --version 1.2.3 project-docs-123
+  ```
+</Expandable>
+
+## Search Functionality
+
+Search across all docs with full-text indexing. Filter by folder, date, or author for precise results.
+
+<Steps>
+  <Step title="Basic Search" icon="search">
+    Type keywords in the global search bar. Results appear instantly.
+  </Step>
+  <Step title="Advanced Filters" icon="filter">
+    Add filters like `folder:guides author:you` for targeted queries.
+  </Step>
+  <Step title="Saved Searches" icon="bookmark">
+    Pin frequent searches to your sidebar for quick access.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+  Search supports code syntax highlighting in results. Use `<code>query</code>` for exact matches.
+</Callout>
+
+## Next Steps
+
+Explore these features hands-on:
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="book-open" href="/quickstart" horizontal>
+    Set up your first doc in minutes.
+  </Card>
+  <Card title="Advanced Guides" icon="book" href="/guides" horizontal>
+    Dive deeper into customization.
+  </Card>
+</Columns>

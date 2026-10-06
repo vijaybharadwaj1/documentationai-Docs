@@ -1,0 +1,184 @@
+---
+title: Integrations
+description: Guide to connecting Vijay Bharadwaj with external tools, services, and automation.
+---
+
+## Overview
+
+Connect Vijay Bharadwaj to your favorite tools for seamless workflows. Use GitHub for repo syncing, webhooks for real-time updates, embeds for third-party dashboards, and exports for data portability.
+
+<Columns cols={2}>
+  <Card title="GitHub Syncing" icon="github" href="#github-syncing">
+    Automatically sync repositories and documentation changes.
+  </Card>
+  <Card title="Webhook Setup" icon="zap" href="#webhook-setup">
+    Receive instant notifications from Vijay Bharadwaj events.
+  </Card>
+  <Card title="Third-party Embeds" icon="globe" href="#third-party-embeds">
+    Embed live previews in Notion, Slack, or Confluence.
+  </Card>
+  <Card title="Export Formats" icon="download" href="#export-formats">
+    Download your docs in PDF, Markdown, or HTML.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Start with GitHub syncing for version-controlled documentation. All integrations require an active Vijay Bharadwaj account.
+</Callout>
+
+## GitHub Syncing
+
+Sync your Vijay Bharadwaj documentation directly to GitHub repositories. Push changes from the dashboard or pull updates from your repo.
+
+<Steps>
+  <Step title="Connect Repository" icon="github">
+    Navigate to Settings > Integrations in your dashboard.
+    
+    Select GitHub and authorize the app.
+  </Step>
+  <Step title="Configure Sync" icon="settings">
+    Choose your repository and branch (e.g., `main`).
+    
+    Enable auto-push for dashboard edits.
+  </Step>
+  <Step title="Test Sync" icon="play">
+    Make a dashboard change and verify it appears in GitHub.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="CLI,Dashboard">
+  ```bash
+  # Install CLI
+  npm install -g vijay-bharadwaj-cli
+  
+  # Authenticate
+  vijay login
+  
+  # Sync repo
+  vijay sync github my-org/my-docs --branch main
+  ```
+  ```javascript
+  // Dashboard API call (via SDK)
+  import { VijayClient } from 'vijay-bharadwaj-sdk';
+  
+  const client = new VijayClient({ apiKey: 'YOUR_API_KEY' });
+  await client.integrations.github.sync({
+    repo: 'my-org/my-docs',
+    branch: 'main',
+    autoPush: true
+  });
+  ```
+</CodeGroup>
+
+## Webhook Setup
+
+Set up webhooks to trigger actions on events like document updates or user logins. Vijay Bharadwaj sends POST requests to your endpoint.
+
+<Request tabs="cURL,JavaScript" show-lines="true">
+  ```bash
+  curl -X POST https://your-webhook-url.com/vijay \
+    -H "Content-Type: application/json" \
+    -d '{
+      "event": "doc.updated",
+      "docId": "doc_123",
+      "timestamp": "2024-01-15T10:30:00Z"
+    }'
+  ```
+  ```javascript
+  const response = await fetch('https://your-webhook-url.com/vijay', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      event: 'doc.updated',
+      docId: 'doc_123',
+      timestamp: new Date().toISOString()
+    })
+  });
+  ```
+</Request>
+
+<ParamField path="webhookUrl" param-type="string" required="true">
+  Your secure HTTPS endpoint to receive payloads.
+</ParamField>
+
+<ParamField header="Vijay-Signature" param-type="string" required="false">
+  HMAC SHA-256 signature for payload verification using your secret.
+</ParamField>
+
+## Third-party Embeds
+
+Embed Vijay Bharadwaj content in external tools. Generate embed codes for interactive previews.
+
+<Tabs>
+  <Tab title="Notion" icon="book-open">
+    Copy the embed URL from Share > Embed.
+    
+    Paste into Notion's `/embed` block:
+    
+````markdown
+https://vijaybharadwaj.com/embed/doc_123?theme=dark
+````
+  </Tab>
+  <Tab title="Slack" icon="message-circle">
+    Use Slack's link preview or custom app.
+    
+    Add to your Slack workflow:
+    
+````javascript
+// Slack slash command handler
+app.command('/vijay', async ({ command, ack, say }) => {
+  await ack();
+  await say({
+    blocks: [
+      {
+        type: 'section',
+        text: { type: 'mrkdwn', text: 'Latest docs: <https://vijaybharadwaj.com/doc_123|View>' }
+      }
+    ]
+  });
+});
+````
+  </Tab>
+  <Tab title="Confluence" icon="file-text">
+    Use HTML macro with iframe:
+    
+````html
+<iframe src="https://vijaybharadwaj.com/embed/doc_123" width="100%" height="600px"></iframe>
+````
+  </Tab>
+</Tabs>
+
+## Export Formats
+
+Export your documentation in multiple formats for offline use or migration.
+
+| Format     | Use Case                  | Command/Example                  |
+|------------|---------------------------|----------------------------------|
+| Markdown  | Git repos, static sites  | `vijay export docs.md`          |
+| PDF       | Printing, sharing        | `vijay export docs.pdf`         |
+| HTML      | Web archives             | `vijay export docs.html --css`  |
+
+<Expandable title="Advanced Export Options" default-open="false">
+  Customize exports with themes and filters:
+  
+  ```bash
+  vijay export docs.pdf \
+    --theme dark \
+    --filter "status:published" \
+    --output ./exports/
+  ```
+</Expandable>
+
+<Board title="Integration Status">
+  <BoardColumn title="Active" color="2" icon="check-circle">
+    <BoardCard title="GitHub Sync" description="Repos auto-updating" icon="github" />
+    <BoardCard title="Slack Webhooks" dueDate="2024-12-31" />
+  </BoardColumn>
+  <BoardColumn title="Planned" color="1" icon="loader">
+    <BoardCard title="Zapier" description="No-code automations" icon="zap" />
+    <BoardCard title="Airtable" />
+  </BoardColumn>
+  <BoardColumn title="Backlog" color="0" icon="circle-dot">
+    <BoardCard title="Jira Tickets" />
+  </BoardColumn>
+</Board>

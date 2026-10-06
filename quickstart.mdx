@@ -1,0 +1,132 @@
+---
+title: Quickstart
+description: Step-by-step guide to quickly set up an account and create your first documentation space.
+---
+
+## Prerequisites
+
+Before starting, ensure you have:
+
+- A modern web browser like Chrome, Firefox, or Safari
+- An email address for account verification
+- Optional: GitHub or Google account for social sign-up
+
+<Callout kind="info">
+
+This quickstart takes about 5 minutes. No credit card required for the free tier.
+
+</Callout>
+
+## Create Your Account
+
+Sign up using your preferred method. Vijay Bharadwaj supports multiple authentication options.
+
+<Tabs>
+  <Tab title="Email" icon="mail">
+    Visit `https://app.vijaybharadwaj.com/signup` and enter your email and password.
+  </Tab>
+  <Tab title="Google" icon="chrome">
+    Click "Sign up with Google" to use your Google account.
+  </Tab>
+  <Tab title="GitHub" icon="github">
+    Authenticate via GitHub for seamless integration with repositories.
+  </Tab>
+</Tabs>
+
+Verify your email to activate the account.
+
+## Set Up Your Workspace
+
+Follow these steps to create your first documentation workspace.
+
+<Steps>
+  <Step title="Create Workspace" icon="folder">
+    Log in to `https://app.vijaybharadwaj.com/dashboard`.
+
+    Click **New Workspace** and enter a name like "My Project Docs".
+
+    Select your preferred template: "Starter" or "API Reference".
+  </Step>
+
+  <Step title="Configure Settings" icon="settings">
+    In workspace settings, set your brand color to `#3B82F6`.
+
+    Add your domain if available, or use the default subdomain.
+  </Step>
+</Steps>
+
+## Create Your First Document
+
+Add your initial page using MDX.
+
+<CodeGroup tabs="Dashboard,CLI">
+  ```javascript
+  // Via Dashboard UI
+  // 1. Click "New Page"
+  // 2. Title: "Introduction"
+  // 3. Add frontmatter and content
+  ```
+  ```bash
+  # Via CLI (after installing @vijaybharadwaj/cli)
+  npm install -g @vijaybharadwaj/cli
+  vijay init my-docs
+  cd my-docs
+  vijay pages create introduction.mdx
+  ```
+</CodeGroup>
+
+Example frontmatter for your first page:
+
+````mdx
+---
+title: Introduction
+description: Welcome to my docs.
+---
+```
+
+## Publish Your Site
+
+Make your documentation live.
+
+<Steps>
+  <Step title="Preview Locally" icon="eye">
+    Click **Preview** in the editor to see changes in real-time.
+  </Step>
+
+  <Step title="Deploy" icon="rocket">
+    Hit **Publish**. Your site deploys to `https://my-project.vijaybharadwaj.com`.
+
+    Share the custom URL with your team.
+  </Step>
+</Steps>
+
+<Callout kind="success">
+
+Congratulations! Your first documentation space is live. Visit your site to explore.
+
+</Callout>
+
+## Next Steps
+
+Explore these resources to build more.
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your workspace with API keys and OAuth.
+  </Card>
+  <Card title="Advanced Guides" icon="book-open" href="/guides">
+    Learn custom themes and integrations.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with new features.
+  </Card>
+  <Card title="Customization" icon="palette" href="/configuration">
+    Tailor your docs with brand colors and layouts.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Deployment failed?** Check your workspace permissions.
+  - **Custom domain not working?** Verify DNS settings point to Vijay Bharadwaj.
+  - Need help? Contact support at `support@vijaybharadwaj.com`.
+</Expandable>

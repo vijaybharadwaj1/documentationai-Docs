@@ -1,0 +1,159 @@
+---
+title: Changelog
+description: Version history tracking recent updates, new features, and changes in Vijay Bharadwaj.
+---
+
+## Recent Updates
+
+Stay informed about the latest improvements and fixes. Vijay Bharadwaj evolves with regular releases that enhance functionality, performance, and user experience.
+
+<Callout kind="info">
+  Subscribe to our RSS feed or GitHub notifications to get changelog updates automatically. Check this page after each upgrade to review migration steps.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration support for shared documents.
+- Introduced customizable dashboards with drag-and-drop widgets.
+
+## Improvements
+
+- Enhanced search performance by `>30%` for large projects.
+- Updated UI components with better accessibility compliance.
+
+## Bug Fixes
+
+- Fixed intermittent sync issues during offline mode.
+- Resolved export errors for documents exceeding 10MB.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated OAuth 2.0 authentication providers.
+- Added webhook support for external integrations.
+
+## Bug Fixes
+
+- Corrected navigation glitches on mobile devices.
+- Patched security vulnerability in file upload handling (CVE-2024-XXXX).
+
+## Deprecations
+
+- Legacy API endpoints under `/v1/deprecated` will be removed in v2.0.0.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## New Features
+
+- Core documentation management system launched.
+- Full-text search across all project spaces.
+
+## Breaking Changes
+
+- Updated configuration format from JSON to YAML. Migrate using the provided script.
+
+## Initial Setup
+
+- Basic authentication and user management.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade smoothly.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+    Create a full backup before proceeding.
+
+````bash
+# Example backup command
+pg_dump -U user vijaybharadwaj_db > backup.sql
+````
+
+  </Step>
+  <Step title="Update Package" icon="download">
+
+    Install the latest version.
+
+    <CodeGroup tabs="npm,yarn">
+````bash
+npm install vijay-bharadwaj@latest
+````
+````bash
+yarn add vijay-bharadwaj@latest
+````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Run Migrations" icon="settings">
+
+    Execute database migrations.
+
+````bash
+npm run migrate
+````
+
+  </Step>
+  <Step title="Restart Service" icon="refresh-cw">
+
+    Restart your application server.
+
+  </Step>
+</Steps>
+
+## Roadmap
+
+View upcoming priorities.
+
+<Board title="Q4 2024 Roadmap">
+  <BoardColumn title="Planned" color="0" icon="calendar">
+    <BoardCard title="AI-powered search" description="Natural language queries" icon="brain" dueDate="2024-12-15" />
+    <BoardCard title="Mobile app" description="Native iOS/Android support" icon="smartphone" />
+  </BoardColumn>
+  <BoardColumn title="In Progress" color="1" icon="loader-2">
+    <BoardCard title="Advanced permissions" description="Role-based access control" icon="shield" author="Engineering" />
+  </BoardColumn>
+  <BoardColumn title="Completed" color="2" icon="check-circle">
+    <BoardCard title="Version 1.2.0" createdAt="2024-10-15" />
+  </BoardColumn>
+</Board>
+
+## Explore Further
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="book-open" href="/quickstart">
+    Get started in minutes with installation and first project.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication" horizontal>
+    Secure your documentation space with robust auth options.
+  </Card>
+</Columns>
+
+<Expandable title="Detailed Migration Guide" default-open="false">
+  For v1.0.0 to v1.2.0 upgrades, review these changes:
+
+  | Old Config | New Config | Action |
+  |------------|------------|--------|
+  | `api.host` | `api.endpoint` | Update key |
+  | `db.url`   | `database.url` | Rename |
+  | `debug: true` | `logging.level: "debug"` | Restructure |
+
+  Run the migration script:
+
+````bash
+node migrate-config.js --from v1.0.0 --to v1.2.0
+````
+</Expandable>
+
+<Callout kind="tip">
+  Found a bug? Report it on GitHub with reproduction steps.
+</Callout>
